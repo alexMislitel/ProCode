@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Промкод">
+  <!--
+    Промкод © 2026 Alexandr.
+    Основной код форка: OpenCode, MIT, © 2025 opencode.
+
+    Те же скобки — это «код». Внутри микросхема с выводами: промышленное,
+    железо, производство. Ни одной буквы, форма рисуется везде одинаково.
+  -->
+  <rect width="64" height="64" rx="13" fill="#0b0d10"/>
+
+  <g fill="none" stroke="#5eead4" stroke-width="3.4"
+     stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M22 15 L14 15 L14 49 L22 49"/>
+    <path d="M42 15 L50 15 L50 49 L42 49"/>
+  </g>
+
+  <!-- выводы -->
+  <g stroke="#2dd4bf" stroke-width="2.2" stroke-linecap="butt">
+    <path d="M27 25 L27 21"/>
+    <path d="M32 25 L32 21"/>
+    <path d="M37 25 L37 21"/>
+    <path d="M27 39 L27 43"/>
+    <path d="M32 39 L32 43"/>
+    <path d="M37 39 L37 43"/>
+    <path d="M25 29 L21 29"/>
+    <path d="M25 32 L21 32"/>
+    <path d="M25 35 L21 35"/>
+    <path d="M39 29 L43 29"/>
+    <path d="M39 32 L43 32"/>
+    <path d="M39 35 L43 35"/>
+  </g>
+
+  <!-- корпус микросхемы -->
+  <rect x="24.5" y="24.5" width="15" height="15" rx="1.5"
+        fill="#0b0d10" stroke="#5eead4" stroke-width="2.6"/>
+</svg>

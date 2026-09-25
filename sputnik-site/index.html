@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  СКЕЛЕТ. Заполняет Alexandr.
+
+  Что здесь уже есть:  структура, плитки, поиск, ссылки.
+  Чего здесь нет:      заголовков, описаний, цен, обещаний.
+                        Всё это вставь сам, в отмеченных местах.
+
+  Разметка для поиска:  data-name="..." — сюда слова, по которым
+                        плитка находится. Без этого поиск её не найдёт.
+-->
+
+<title>Спутник — услуги</title>
+<meta name="description" content="">
+
+<link rel="icon" href="./logo-zhivoi.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="./index.html">
+      <img src="./logo-zhivoi.svg" width="30" height="30" alt="">
+      <b>Живой<span>Код</span></b>
+    </a>
+    <nav class="nav" data-nav aria-label="Разделы"></nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== ГЛАВНЫЙ ЗАГОЛОВОК: впиши свой ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>СЮДА ЗАГОЛОВОК</h1>
+      <p>СЮДА ОДНА СТРОКА О ТОМ, ЧТО ДЕЛАЕШЬ</p>
+      <div class="cta">
+        <a class="btn" href="#groups">Смотреть услуги</a>
+        <a class="btn alt" data-external="TELEGRAM">Написать</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПОИСК ===== -->
+  <div class="searchbar">
+    <div class="wrap">
+      <div class="search-row">
+        <svg class="s-ico" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 16 L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Поиск по услугам" aria-label="Поиск по услугам">
+        <button type="button" id="clear" title="Очистить" aria-label="Очистить">×</button>
+      </div>
+      <div class="search-meta">
+        <span id="count" class="count"></span>
+        <span class="kbd-hint">Ctrl + K</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="groups" class="wrap">
+
+    <div id="empty" class="nothing" hidden>
+      <b>Ничего не нашлось</b>
+      <p>Попробуйте другое слово.</p>
+      <a class="btn alt" data-external="TELEGRAM">Написать нам</a>
+    </div>
+
+    <!--
+      Копируй этот блок, чтобы сделать новый раздел.
+      Меняй: класс раздела (цвет полоски), заголовок, иконки плиток.
+    -->
+    <section class="group c-voice" data-group>
+      <div class="group-head">
+        <h2>Голос и речь</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="расшифровка речь запись интервью подкаст совещание лекция">
+          <span class="ico"></span>
+          <h3>Расшифровка речи в чистый текст</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="очистка вычитка редактура текста">
+          <span class="ico"></span>
+          <h3>Очистка и вычитка</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="субтитры титры видео">
+          <span class="ico"></span>
+          <h3>Субтитры к видео</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="протокол совещания встреча итоги">
+          <span class="ico"></span>
+          <h3>Протокол встречи</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-text" data-group>
+      <div class="group-head">
+        <h2>Тексты</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="статья текст материал">
+          <span class="ico"></span>
+          <h3>Написание статьи</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="пост соцсети телеграм вк инстаграм">
+          <span class="ico"></span>
+          <h3>Пост для соцсетей</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="коммерческое предложение кп">
+          <span class="ico"></span>
+          <h3>Коммерческое предложение</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="резюме сопроводительное письмо">
+          <span class="ico"></span>
+          <h3>Резюме и письмо</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="лендинг тексты для сайта">
+          <span class="ico"></span>
+          <h3>Тексты для лендинга</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="сценарий видео рилс шортс">
+          <span class="ico"></span>
+          <h3>Сценарий для видео</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="слоган утп реклама заголовок">
+          <span class="ico"></span>
+          <h3>Слоган и УТП</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="перевод текста язык">
+          <span class="ico"></span>
+          <h3>Перевод текста</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="сжатие пересказ конспект краткое">
+          <span class="ico"></span>
+          <h3>Сжатие и пересказ</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-site" data-group>
+      <div class="group-head">
+        <h2>Сайты и страницы</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="заполнить блог сайт наполнение контентом">
+          <span class="ico"></span>
+          <h3>Заполнение блога</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="ведение личной страницы сайта">
+          <span class="ico"></span>
+          <h3>Ведение личной страницы</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="лендинг создать страницу">
+          <span class="ico"></span>
+          <h3>Создание лендинга</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="наполнение магазина карточки товаров">
+          <span class="ico"></span>
+          <h3>Наполнение магазина</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="seo описание метатеги">
+          <span class="ico"></span>
+          <h3>SEO-описания</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-soc" data-group>
+      <div class="group-head">
+        <h2>Соцсети и продвижение</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="ведение соцсетей продвижение инстаграм вк телеграм рилс">
+          <span class="ico"></span>
+          <h3>Ведение соцсетей</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="контент план стратегия">
+          <span class="ico"></span>
+          <h3>Контент-план</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="отзывы ответы покупателям">
+          <span class="ico"></span>
+          <h3>Работа с отзывами</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="рассылка письма приглашения">
+          <span class="ico"></span>
+          <h3>Рассылка</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-video" data-group>
+      <div class="group-head">
+        <h2>Видео, графика, презентации</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="презентация презентации слайды powerpoint">
+          <span class="ico"></span>
+          <h3>Создание презентации</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="генерация видео ролик">
+          <span class="ico"></span>
+          <h3>Генерация видео</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="монтаж видео">
+          <span class="ico"></span>
+          <h3>Монтаж видео</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="озвучка синтез речи голос">
+          <span class="ico"></span>
+          <h3>Озвучка текста</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="картинки изображения баннер дизайн">
+          <span class="ico"></span>
+          <h3>Картинки и баннеры</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-market" data-group>
+      <div class="group-head">
+        <h2>Маркетплейсы</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="карточка товара wildberries ozon вб озон маркетплейс">
+          <span class="ico"></span>
+          <h3>Карточки товаров</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="разбор отзывов анализ">
+          <span class="ico"></span>
+          <h3>Разбор отзывов</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="выгрузка таблица excel учёт">
+          <span class="ico"></span>
+          <h3>Выгрузка и таблицы</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-doc" data-group>
+      <div class="group-head">
+        <h2>Документы</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="договор акт документ шаблон заполнение">
+          <span class="ico"></span>
+          <h3>Документы и договоры</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="инструкция регламент памятка">
+          <span class="ico"></span>
+          <h3>Инструкции и регламенты</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="техническая документация">
+          <span class="ico"></span>
+          <h3>Техдокументация</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group c-learn" data-group>
+      <div class="group-head">
+        <h2>Обучение и организация</h2>
+        <p></p>
+      </div>
+      <div class="tiles">
+
+        <a class="tile wide" href="#order" data-name="обучение консультация внедрение ии настройка автоматизация">
+          <span class="ico"></span>
+          <h3>Обучение и настройка</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+        <a class="tile" href="#order" data-name="разбор процессов аудит улучшение">
+          <span class="ico"></span>
+          <h3>Разбор процессов</h3>
+          <p></p>
+          <span class="note"></span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== ТАРИФЫ: заполни сам ===== -->
+    <section class="group c-market" id="price">
+      <div class="group-head">
+        <h2>Тарифы</h2>
+        <p></p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Бесплатно</h3>
+          <p class="v-for">всем</p>
+          <div class="v-price"><b>0 ₽</b><span></span></div>
+          <a class="btn" href="#groups">Выбрать</a>
+          <ul class="checks">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="plan hot">
+          <h3>Автоматизация и организация</h3>
+          <p class="v-for">компаниям</p>
+          <div class="v-price"><b></b><span></span></div>
+          <a class="btn" href="#groups">Заказать</a>
+          <ul class="checks">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЗАКАЗ: можно переделать в форму ===== -->
+    <section class="group" id="order">
+      <div class="group-head">
+        <h2>Заказать</h2>
+        <p></p>
+      </div>
+      <p></p>
+      <div class="cta">
+        <a class="btn" data-external="TELEGRAM">Написать</a>
+        <a class="btn alt" data-external="EMAIL">Написать на почту</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <p><b>Спутник</b></p>
+      <p class="dim"></p>
+    </div>
+    <div>
+      <p><a data-external="TELEGRAM">Telegram</a></p>
+      <p><a data-external="GITHUB_REPO">GitHub</a></p>
+      <p class="dim">Основа интерфейса: OpenCode, MIT, © 2025 opencode</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./site.js"></script>
+<script src="./search.js"></script>
+<script src="./chat.js"></script>
+</body>
+</html>

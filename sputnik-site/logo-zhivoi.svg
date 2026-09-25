@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ЖивойКод">
+  <!--
+    ЖивойКод © 2026 Alexandr.
+    Основной код форка: OpenCode, MIT, © 2025 opencode.
+
+    Скобки читаются как «код», линия внутри — как пульс, как признак
+    жизни. Ни одной буквы: форма обязана рисоваться одинаково везде,
+    поэтому текст внутри SVG не используется — он поедет на чужом
+    компьютере.
+  -->
+  <rect width="64" height="64" rx="13" fill="#0b0d10"/>
+
+  <g fill="none" stroke="#5eead4" stroke-width="3.4"
+     stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M22 15 L14 15 L14 49 L22 49"/>
+    <path d="M42 15 L50 15 L50 49 L42 49"/>
+  </g>
+
+  <!-- пульс -->
+  <path d="M19 32 L25 32 L28 23 L32 43 L36 29 L39 32 L45 32"
+        fill="none" stroke="#5eead4" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

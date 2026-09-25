@@ -1,0 +1,201 @@
+/*
+ * ШАБЛОН СТРАНИЦЫ УСЛУГИ — Спутник
+ * © 2026 Alexandr. Основной код форка: OpenCode, MIT, (c) 2025 opencode
+ *
+ * Схема взята со страницы продукта: боковая навигация, герой, выгоды,
+ * два варианта, фичи, вопросы, тарифы. Заполняется копипастой.
+ *
+ * ЧТО ЗАПОЛНЯТЬ: всё между {{ }}.
+ * ЧТО НЕ ВЫДУМЫВАТЬ: цифры. Если реального числа нет — оставить
+ * прочерк и подпись, а не написать «1000 клиентов». На бирже за враньё
+ * потом снимают рейтинг, и вернуть его стоит месяцев.
+ */
+
+<!-- ================= ШАПКА ================= -->
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="../index.html">
+      <img src="../logo-zhivoi.svg" width="30" height="30" alt="">
+      <b>Живой<span>Код</span></b>
+    </a>
+    <nav class="nav" data-nav aria-label="Разделы"></nav>
+  </div>
+</header>
+
+<!-- Боковая навигация страницы. Якоря ведут вниз по этой же странице. -->
+<div class="subnav">
+  <div class="wrap">
+    <a href="#what">Что делаем</a>
+    <a href="#how">Как работаем</a>
+    <a href="#price">Тарифы</a>
+    <a href="#order" class="cta-mini">Заказать</a>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ================= ГЕРОЙ ================= -->
+  <section class="p-hero">
+    <h1>{{ЗАГОЛОВОК УСЛУГИ}}</h1>
+    <p class="lead">{{ЖИРНАЯ СТРОКА: ЧТО ПОЛУЧАЕТ КЛИЕНТ}}</p>
+    <p class="sub">{{ДВЕ-ТРИ СТРОКИ ПОДРОБНОСТЕЙ}}</p>
+    <div class="cta">
+      <a class="btn" href="#order">Заказать</a>
+      <a class="btn alt" data-external="TELEGRAM">Спросить в Telegram</a>
+    </div>
+
+    <!-- ЦИФРЫ. Только настоящие. Нет числа — оставь прочерк. -->
+    <div class="metrics">
+      <div><b>{{ЦФФРА 1}}</b><span>например: 0 ₽ за вход</span></div>
+      <div><b>{{ЦФФРА 2}}</b><span>например: своя модель</span></div>
+      <div><b>{{ЦФФРА 3}}</b><span>например: без подписки</span></div>
+    </div>
+  </section>
+
+  <!-- ================= ТРИ ВЫГОДЫ ================= -->
+  <section class="p-why">
+    <div class="why">
+      <div><h3>{{ВЫГОДА 1}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div><h3>{{ВЫГОДА 2}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div><h3>{{ВЫГОДА 3}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+    </div>
+  </section>
+
+  <!-- ================= ЧТО ДЕЛАЕМ ================= -->
+  <section id="what" class="p-block">
+    <h2>{{ЧТО ДЕЛАЕМ}}</h2>
+    <p>{{ОПИСАНИЕ УСЛУГИ, 2-4 АБЗАЦА}}</p>
+
+    <div class="p-feats">
+      <div class="feat"><h3>{{ФИЧА 1}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div class="feat"><h3>{{ФИЧА 2}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div class="feat"><h3>{{ФИЧА 3}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div class="feat"><h3>{{ФИЧА 4}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div class="feat"><h3>{{ФИЧА 5}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+      <div class="feat"><h3>{{ФИЧА 6}}</h3><p>{{ОПИСАНИЕ}}</p></div>
+    </div>
+  </section>
+
+  <!-- ================= ДВА ВАРИАНТА ================= -->
+  <section id="how" class="p-block alt">
+    <h2>Два варианта</h2>
+
+    <div class="variant">
+      <div class="v-head">
+        <h3>{{ВАРИАНТ 1}}</h3>
+        <span class="v-tag">{{КОМУ ПОДХОДИТ}}</span>
+      </div>
+      <p>{{ОПИСАНИЕ ВАРИАНТА}}</p>
+      <div class="tabs">
+        <span>Что умеет</span>
+        <span>Для кого</span>
+        <span>Сколько стоит</span>
+      </div>
+      <ul class="checks">
+        <li>{{ПУНКТ}}</li>
+        <li>{{ПУНКТ}}</li>
+        <li>{{ПУНКТ}}</li>
+        <li>{{ПУНКТ}}</li>
+      </ul>
+    </div>
+
+    <div class="variant">
+      <div class="v-head">
+        <h3>{{ВАРИАНТ 2}}</h3>
+        <span class="v-tag">{{КОМУ ПОДХОДИТ}}</span>
+      </div>
+      <p>{{ОПИСАНИЕ ВАРИАНТА}}</p>
+      <div class="tabs">
+        <span>Что умеет</span>
+        <span>Для кого</span>
+        <span>Сколько стоит</span>
+      </div>
+      <ul class="checks">
+        <li>{{ПУНКТ}}</li>
+        <li>{{ПУНКТ}}</li>
+        <li>{{ПУНКТ}}</li>
+        <li>{{ПУНКТ}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ВОПРОСЫ ================= -->
+  <section class="p-block">
+    <h2>Вопросы и ответы</h2>
+
+    <details open>
+      <summary>{{ВОПРОС 01}}</summary>
+      <p>{{ОТВЕТ}}</p>
+    </details>
+    <details>
+      <summary>{{ВОПРОС 02}}</summary>
+      <p>{{ОТВЕТ}}</p>
+    </details>
+    <details>
+      <summary>{{ВОПРОС 03}}</summary>
+      <p>{{ОТВЕТ}}</p>
+    </details>
+    <details>
+      <summary>{{ВОПРОС 04}}</summary>
+      <p>{{ОТВЕТ}}</p>
+    </details>
+  </section>
+
+  <!-- ================= ТАРИФЫ ================= -->
+  <section id="price" class="p-block alt">
+    <h2>Тарифы</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>{{НАЗВАНИЕ ТАРИФА}}</h3>
+        <p class="v-for">{{КОМУ}}</p>
+        <div class="v-price"><b>{{ЦЕНА}}</b><span>за {{ПЕРИОД}}</span></div>
+        <a class="btn" href="#order">Выбрать</a>
+        <ul class="checks">
+          <li>{{ВКЛЮЧЕНО}}</li>
+          <li>{{ВКЛЮЧЕНО}}</li>
+          <li>{{ВКЛЮЧЕНО}}</li>
+        </ul>
+      </div>
+      <div class="plan hot">
+        <h3>{{НАЗВАНИЕ ТАРИФА}}</h3>
+        <p class="v-for">{{КОМУ}}</p>
+        <div class="v-price"><b>{{ЦЕНА}}</b><span>за {{ПЕРИОД}}</span></div>
+        <a class="btn" href="#order">Выбрать</a>
+        <ul class="checks">
+          <li>{{ВКЛЮЧЕНО}}</li>
+          <li>{{ВКЛЮЧЕНО}}</li>
+          <li>{{ВКЛЮЧЕНО}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ЗАКАЗ ================= -->
+  <section id="order" class="p-order">
+    <h2>Заказать</h2>
+    <p>Напишите, что нужно и к какому сроку. Ответим с ценой и сроком.</p>
+    <div class="cta">
+      <a class="btn" data-external="TELEGRAM">Написать в Telegram</a>
+      <a class="btn alt" data-external="EMAIL">Написать на почту</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <p><b>Спутник</b> — услуги с ИИ</p>
+      <p class="dim">Работаем с ИИ, проверяем результат глазами.</p>
+    </div>
+    <div>
+      <p><a data-external="TELEGRAM">Telegram</a></p>
+      <p><a data-external="GITHUB_REPO">Код на GitHub</a></p>
+      <p class="dim">Основа интерфейса: OpenCode, MIT, © 2025 opencode</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../site.js"></script>
+</body>
+</html>

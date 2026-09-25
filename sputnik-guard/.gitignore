@@ -1,0 +1,32 @@
+# Приватные ключи подписи — НИКОГДА в репозиторий
+keys/
+*.bin
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Сборка
+build/
+dist/
+out/
+*.exe
+*.msi
+*.dmg
+*.AppImage
+*.deb
+*.rpm
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Кэш
+.cache/
+tmp/
+temp/
+*.log
+*.bak

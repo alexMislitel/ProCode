@@ -1,0 +1,243 @@
+/* Спутник © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode */
+
+:root{
+  --bg:#0a0c10; --tile:#141920; --tile-hi:#1b212a; --line:#232a35;
+  --text:#e9edf3; --muted:#98a2b3; --dim:#6b7686;
+  --radius:10px;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI Variable","Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.off{opacity:.4;cursor:default}
+
+/* ---------------- шапка ---------------- */
+.top{border-bottom:1px solid var(--line);background:rgba(10,12,16,.92);
+  position:sticky;top:0;z-index:30;backdrop-filter:blur(10px)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:660;font-size:1.05rem;letter-spacing:-.01em}
+.logo img{border-radius:7px}
+.logo b{font-weight:660}
+.logo span{color:var(--accent,#5eead4)}
+.nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.nav a{padding:8px 14px;border-radius:7px;font-size:.9rem;color:var(--muted)}
+.nav a:hover{background:var(--tile);color:var(--text)}
+.nav a.on{background:var(--tile-hi);color:var(--text);font-weight:600}
+.nav .ghost{border:1px solid var(--line);margin-left:6px}
+
+/* ---------------- герой ---------------- */
+.hero{padding:64px 0 44px;text-align:center}
+.hero h1{font-size:clamp(2rem,5.6vw,3.3rem);line-height:1.1;letter-spacing:-.032em;
+  margin:0 0 18px;font-weight:700;max-width:900px;margin-inline:auto}
+.hero h1 em{font-style:normal;color:#5eead4}
+.hero p{color:var(--muted);font-size:1.06rem;max-width:660px;margin:0 auto 28px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{background:#5eead4;color:#06231f;font-weight:640;font-size:.95rem;
+  padding:12px 26px;border-radius:8px}
+.btn:hover{background:#2dd4bf}
+.btn.alt{background:none;color:var(--text);border:1px solid var(--line);font-weight:500}
+.btn.alt:hover{border-color:#5eead4;color:#5eead4}
+
+/* ---------------- разделы и плитки ---------------- */
+section.group{padding:34px 0 10px}
+.group-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.group-head h2{font-size:1.24rem;margin:0;font-weight:660;letter-spacing:-.015em}
+.group-head p{margin:0;color:var(--dim);font-size:.88rem}
+.count{font-size:.76rem;color:var(--dim);border:1px solid var(--line);
+  border-radius:20px;padding:2px 10px}
+
+.tiles{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(258px,1fr));
+  gap:12px;
+  margin-bottom:14px;
+}
+
+/* Плитка. Крупная и понятная — как в меню «Пуск» Windows. */
+.tile{
+  background:var(--tile);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:20px 20px 22px;
+  min-height:132px;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  transition:transform .14s ease,background .14s ease,border-color .14s ease;
+}
+.tile::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--c,var(--line));
+}
+.tile:hover{background:var(--tile-hi);border-color:#39424f;transform:translateY(-2px)}
+.tile .ico{font-size:30px;line-height:1;margin-bottom:12px}
+.tile h3{margin:0 0 6px;font-size:1.02rem;font-weight:620;letter-spacing:-.008em;line-height:1.3}
+.tile p{margin:0;color:var(--muted);font-size:.855rem;line-height:1.5}
+.tile .note{
+  margin-top:auto;padding-top:12px;font-size:.74rem;color:var(--dim);
+  display:flex;align-items:center;gap:6px
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ok,#3ddc97);flex:0 0 6px}
+.dot.no{background:#f59e0b}
+
+/* Первая плитка в разделе — крупная, во две колонки. Это та же
+   иерархия, что в меню «Пуск»: главное крупно, остальное ровно. */
+.tiles .tile.wide{grid-column:span 2;min-height:150px}
+.tiles .tile.wide .ico{font-size:40px}
+.tiles .tile.wide h3{font-size:1.2rem}
+.tiles .tile.wide p{font-size:.9rem;max-width:44ch}
+
+/* ---------------- поиск ---------------- */
+.searchbar{
+  position:sticky;top:64px;z-index:20;
+  background:rgba(10,12,16,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:14px 0 12px;
+}
+.search-row{
+  display:flex;align-items:center;gap:12px;
+  background:var(--tile);border:1px solid var(--line);
+  border-radius:9px;padding:0 14px;height:48px;
+  transition:border-color .15s ease,background .15s ease;
+}
+.search-row:focus-within{border-color:#3d4757;background:var(--tile-hi)}
+.s-ico{color:var(--dim);flex:0 0 19px}
+.search-row:focus-within .s-ico{color:#5eead4}
+#q{
+  flex:1;background:none;border:none;outline:none;color:var(--text);
+  font:inherit;font-size:1rem;height:100%;
+}
+#q::placeholder{color:var(--dim)}
+#q::-webkit-search-cancel-button{display:none}
+#clear{
+  background:none;border:none;color:var(--dim);font-size:1.5rem;line-height:1;
+  cursor:pointer;padding:0 4px;border-radius:5px;
+}
+#clear:hover{color:var(--text)}
+.search-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-top:9px;
+}
+.kbd-hint{font-size:.76rem;color:var(--dim)}
+@media(max-width:640px){.kbd-hint{display:none}}
+
+/* ---------------- пусто ---------------- */
+.nothing{
+  text-align:center;padding:70px 20px 90px;
+}
+.nothing b{display:block;font-size:1.16rem;margin-bottom:8px;font-weight:640}
+.nothing p{color:var(--muted);margin:0 0 20px}
+
+/* кнопка записи голосом в чате */
+.rec-row{display:flex;align-items:center;gap:12px}
+.rec{
+  display:flex;align-items:center;gap:8px;flex:0 0 auto;
+  background:var(--bg);border:1px solid var(--line);color:var(--muted);
+  border-radius:8px;padding:8px 14px;font:inherit;font-size:.88rem;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease,background .16s ease;
+}
+.rec:hover{border-color:#5eead4;color:#5eead4}
+.rec.on{background:#5eead4;border-color:#5eead4;color:#06231f;animation:recpulse 1.4s ease-in-out infinite}
+.rec-hint{margin:0;font-size:.78rem;color:var(--dim);line-height:1.4}
+.rec-hint.good{color:#3ddc97}
+.rec-hint.bad{color:#f87171}
+@keyframes recpulse{
+  0%,100%{box-shadow:0 0 0 0 rgb(94 234 212 / .45)}
+  50%{box-shadow:0 0 0 9px rgb(94 234 212 / 0)}
+}
+
+/* ---------------- чат с сайта ---------------- */
+.chat-fab{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:56px;height:56px;border-radius:50%;
+  background:#5eead4;color:#06231f;border:none;cursor:pointer;
+  display:grid;place-items:center;
+  box-shadow:0 6px 24px rgb(0 0 0 / .45);
+  transition:transform .16s ease,background .16s ease;
+}
+.chat-fab:hover{background:#2dd4bf;transform:translateY(-2px)}
+
+.chat-panel{
+  position:fixed;right:22px;bottom:90px;z-index:61;
+  width:min(370px,calc(100vw - 32px));
+  background:#12161d;border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 14px 48px rgb(0 0 0 / .55);
+  overflow:hidden;
+}
+.chat-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:15px 16px;border-bottom:1px solid var(--line);
+}
+.chat-head b{display:block;font-size:.96rem;font-weight:640}
+.chat-head span{font-size:.78rem;color:var(--muted)}
+.chat-x{background:none;border:none;color:var(--dim);font-size:1.5rem;
+  line-height:1;cursor:pointer;padding:0 4px}
+.chat-x:hover{color:var(--text)}
+
+.chat-form{padding:15px 16px 16px;display:grid;gap:12px}
+.chat-form label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 5px}
+.chat-form input,.chat-form textarea{
+  width:100%;margin-top:5px;background:var(--bg);border:1px solid var(--line);
+  border-radius:8px;padding:9px 11px;color:var(--text);
+  font:inherit;font-size:.9rem;outline:none;resize:vertical;
+}
+.chat-form input:focus,.chat-form textarea:focus{border-color:#5eead4}
+.chat-form textarea{min-height:84px;line-height:1.5}
+.chat-send{width:100%;background:#5eead4;color:#06231f;border:none;
+  border-radius:8px;padding:11px;font:inherit;font-size:.92rem;
+  font-weight:640;cursor:pointer}
+.chat-send:hover{background:#2dd4bf}
+.chat-send:disabled{opacity:.5;cursor:not-allowed}
+.chat-note{margin:0;font-size:.82rem;min-height:1.1em}
+.chat-note.good{color:#3ddc97}
+.chat-note.bad{color:#f87171}
+
+/* ---------------- тарифы ---------------- */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.plan{
+  background:var(--tile);border:1px solid var(--line);border-radius:12px;
+  padding:24px;display:flex;flex-direction:column;gap:12px;
+}
+.plan.hot{border-color:#2dd4bf;background:var(--tile-hi)}
+.plan h3{margin:0;font-size:1.14rem;font-weight:660}
+.v-for{margin:0;color:var(--muted);font-size:.88rem}
+.v-price{display:flex;align-items:baseline;gap:8px}
+.v-price b{font-size:2rem;font-weight:700;letter-spacing:-.03em}
+.v-price span{color:var(--muted);font-size:.85rem}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.checks li{position:relative;padding-left:24px;font-size:.89rem;color:var(--muted)}
+.checks li::before{
+  content:"";position:absolute;left:0;top:.5em;
+  width:11px;height:6px;border-left:2px solid #5eead4;border-bottom:2px solid #5eead4;
+  transform:rotate(-45deg);
+}
+.free-tag{font-size:.74rem;color:#5eead4;border:1px solid #2dd4bf;
+  border-radius:20px;padding:2px 10px;align-self:flex-start}
+
+/* ---------------- подвал ---------------- */
+footer{border-top:1px solid var(--line);margin-top:40px;padding:36px 0 54px}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-grid p{margin:0 0 5px;font-size:.88rem;color:var(--muted)}
+.foot-grid .dim{color:var(--dim);font-size:.8rem}
+
+/* палитры разделов */
+.c-text{--c:#5eead4}
+.c-site{--c:#60a5fa}
+.c-soc{--c:#a78bfa}
+.c-video{--c:#f472b6}
+.c-market{--c:#fb923c}
+.c-data{--c:#4ade80}
+.c-doc{--c:#94a3b8}
+.c-learn{--c:#fbbf24}
+.c-voice{--c:#34d399}
+
+@media(max-width:640px){
+  .tiles .tile.wide{grid-column:span 1}
+  .top-in{height:auto;padding:14px 0;flex-direction:column;align-items:flex-start;gap:12px}
+  .nav{width:100%;overflow-x:auto}
+}

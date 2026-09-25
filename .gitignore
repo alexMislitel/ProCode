@@ -1,0 +1,11 @@
+# Приватные ключи подписи — НИКОГДА в репозиторий
+keys/
+*.bin
+*.pem
+*.key
+# Python и сборка
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.exe

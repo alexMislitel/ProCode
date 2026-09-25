@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>ЖивойКод или Промкод — знаки рядом</title>
+<style>
+  body{margin:0;background:#07090c;color:#e8ecf1;
+       font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:38px}
+  h1{font-size:1.5rem;letter-spacing:-.02em;margin:0 0 6px;font-weight:680}
+  .lead{color:#8b95a3;margin:0 0 40px;max-width:660px;font-size:.94rem}
+  h2{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+     color:#5f6977;margin:38px 0 16px;font-weight:600}
+  .panel{background:#0b0d10;border:1px solid #242a33;border-radius:16px;padding:26px}
+  .light{background:#f4f5f7;border:1px solid #dfe3e9}
+  .lockup{display:flex;align-items:center;gap:14px}
+  .name{font-size:1.5rem;font-weight:680;letter-spacing:-.015em}
+  .name span{font-weight:400;color:#5eead4;letter-spacing:-.01em}
+  .light .name{color:#14171f}
+  .light .name span{color:#0d9488}
+  .tagline{font-size:.76rem;color:#8b95a3;margin-top:3px}
+  .light .tagline{color:#667085}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:34px}
+  @media(max-width:800px){.grid{grid-template-columns:1fr}}
+  .sizes{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap}
+  .cell{text-align:center}
+  .cell b{display:block;font-size:.68rem;color:#6b7686;margin-top:7px;font-weight:500}
+  .verdict{margin-top:8px;font-size:.84rem;color:#8b95a3;max-width:640px;line-height:1.6}
+  .verdict b{color:#e8ecf1}
+</style>
+</head>
+<body>
+
+<h1>Два знака, одно решение</h1>
+<p class="lead">Рамка одинаковая — скобки, это «код». Разница внутри: пульс против микросхемы. Посмотри, какой из двух тебе ближе.</p>
+
+<div class="grid">
+
+  <div class="panel">
+    <div class="lockup">
+      <img src="./logo-zhivoi.svg" width="52" height="52" alt="">
+      <div>
+        <div class="name">Живой<span>Код</span></div>
+        <div class="tagline">живой код</div>
+      </div>
+    </div>
+    <div class="sizes" style="margin-top:24px">
+      <div class="cell"><img src="./logo-zhivoi.svg" width="64" height="64" alt=""><b>64</b></div>
+      <div class="cell"><img src="./logo-zhivoi.svg" width="40" height="40" alt=""><b>40</b></div>
+      <div class="cell"><img src="./logo-zhivoi.svg" width="24" height="24" alt=""><b>24</b></div>
+    </div>
+    <p class="verdict">
+      <b>Пульс</b> — жизнь, движение, органическое. Сразу видно, что речь
+      о чём-то живом, а не о железе. Название узнаётся без пояснения:
+      «живой код» — обычная русская фраза. И корень <b>«Живой» у тебя уже
+      есть</b>: Живой Голос, VoiDxt. Одна косточка на всю линейку.
+    </p>
+  </div>
+
+  <div class="panel">
+    <div class="lockup">
+      <img src="./logo-prom.svg" width="52" height="52" alt="">
+      <div>
+        <div class="name">Пром<span>код</span></div>
+        <div class="tagline">промышленный код</div>
+      </div>
+    </div>
+    <div class="sizes" style="margin-top:24px">
+      <div class="cell"><img src="./logo-prom.svg" width="64" height="64" alt=""><b>64</b></div>
+      <div class="cell"><img src="./logo-prom.svg" width="40" height="40" alt=""><b>40</b></div>
+      <div class="cell"><img src="./logo-prom.svg" width="24" height="24" alt=""><b>24</b></div>
+    </div>
+    <p class="verdict">
+      <b>Микросхема</b> — железо, производство, конкретика. Серьёзно и
+      надёжно, ничего лишнего. Но «пром» в ухе разработчика читается как
+      <b>АСУ ТП и станки</b>, а не как инструмент для программиста.
+      И всё равно нужно пояснение: без него непонятно, что значит «пром».
+    </p>
+  </div>
+
+</div>
+
+<h2>На светлом фоне — как в реальном логотипе</h2>
+<div class="grid">
+  <div class="panel light">
+    <div class="lockup">
+      <img src="./logo-zhivoi.svg" width="44" height="44" alt="">
+      <div class="name">Живой<span>Код</span></div>
+    </div>
+  </div>
+  <div class="panel light">
+    <div class="lockup">
+      <img src="./logo-prom.svg" width="44" height="44" alt="">
+      <div class="name">Пром<span>код</span></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
