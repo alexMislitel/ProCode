@@ -1,4 +1,4 @@
-# Спутник — https://sputnik.ru
+# ProCode — https://ВАШ-ДОМЕН
 # © 2026 Alexandr. Основной код форка: OpenCode, MIT, (c) 2025 opencode
 
 User-agent: *

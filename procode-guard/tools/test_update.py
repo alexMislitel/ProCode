@@ -1,5 +1,5 @@
 """
-Спутник — проверка обновления.
+ProCode — проверка обновления.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Запуск:
@@ -27,10 +27,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sputnik_guard.guard import public_key_from_bytes  # noqa: E402
-from sputnik_guard.keys import PUBLIC_KEY_B64  # noqa: E402
-from sputnik_guard.manifest import canonical  # noqa: E402
-from sputnik_guard.update import check, install_update, verify_update_manifest  # noqa: E402
+from procode_guard.guard import public_key_from_bytes  # noqa: E402
+from procode_guard.keys import PUBLIC_KEY_B64  # noqa: E402
+from procode_guard.manifest import canonical  # noqa: E402
+from procode_guard.update import check, install_update, verify_update_manifest  # noqa: E402
 
 RESULTS: list[tuple[bool, str, str]] = []
 
@@ -61,7 +61,7 @@ def main() -> int:
     import shutil
 
     from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
-    from sputnik_guard.update import write_update_manifest
+    from procode_guard.update import write_update_manifest
 
     # Настоящая пара ключей, а не свежесгенерированная. Иначе тест
     # проверял бы не работу, а собственную ошибку: подпишем одним
@@ -75,13 +75,13 @@ def main() -> int:
     public = public_key_from_bytes(base64.b64decode(PUBLIC_KEY_B64))
     attacker = Ed25519PrivateKey.generate()
 
-    work = Path(tempfile.mkdtemp(prefix="sputnik-update-"))
+    work = Path(tempfile.mkdtemp(prefix="procode-update-"))
     httpd = None
 
     try:
         # Готовим «сервер обновлений» с настоящим релизом.
         payload = b"MZ\x90\x00" + bytes(1_200_000)
-        (work / "Sputnik.exe").write_bytes(payload)
+        (work / "ProCode.exe").write_bytes(payload)
 
         import hashlib
 
@@ -102,7 +102,7 @@ def main() -> int:
         write_update_manifest(
             work / "version.json",
             version="9.9.9",
-            url=f"{base}/Sputnik.exe",
+            url=f"{base}/ProCode.exe",
             size=len(payload),
             sha256=hashlib.sha256(payload).hexdigest(),
             private_key=private,
@@ -124,7 +124,7 @@ def main() -> int:
 
         print("\n3. Откат версии")
         write_update_manifest(
-            work / "version.json", "1.0.0", f"{base}/Sputnik.exe",
+            work / "version.json", "1.0.0", f"{base}/ProCode.exe",
             len(payload), hashlib.sha256(payload).hexdigest(), private,
         )
         info = check(base, "9.9.9", public)
@@ -132,7 +132,7 @@ def main() -> int:
 
         print("\n4. Манифест под чужим ключом")
         write_update_manifest(
-            work / "version.json", "10.0.0", f"{base}/Sputnik.exe",
+            work / "version.json", "10.0.0", f"{base}/ProCode.exe",
             len(payload), hashlib.sha256(payload).hexdigest(), attacker,
         )
         info = check(base, "9.9.9", public)
@@ -154,10 +154,10 @@ def main() -> int:
 
         print("\n7. Файл не совпадает с подписанным хешем")
         write_update_manifest(
-            work / "version.json", "9.9.9", f"{base}/Sputnik.exe",
+            work / "version.json", "9.9.9", f"{base}/ProCode.exe",
             len(payload), hashlib.sha256(payload).hexdigest(), private,
         )
-        (work / "Sputnik.exe").write_bytes(
+        (work / "ProCode.exe").write_bytes(
             b"MZ\x90\x00" + bytes(1_200_000) + "вредонос".encode("utf-8")
         )
         info = check(base, "9.8.0", public)
@@ -171,12 +171,12 @@ def main() -> int:
 
         print("\n8. Установка годного файла")
         write_update_manifest(
-            work / "version.json", "9.9.9", f"{base}/Sputnik.exe",
+            work / "version.json", "9.9.9", f"{base}/ProCode.exe",
             len(payload), hashlib.sha256(payload).hexdigest(), private,
         )
-        (work / "Sputnik.exe").write_bytes(payload)
+        (work / "ProCode.exe").write_bytes(payload)
         info = check(base, "9.8.0", public)
-        target = work / "app" / "Sputnik.exe"
+        target = work / "app" / "ProCode.exe"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(b"MZ" + b"\x00" * 1_100_000)
         result = install_update(info, target)

@@ -29,7 +29,7 @@ header('X-Content-Type-Options: nosniff');
  * Сайт не должен лежать в стороннем iframe: иначе чужие смогут
  * слать заявки от имени нашего имени и выкачивать их.
  */
-$allowed = getenv('SPUTNIK_ALLOWED_ORIGIN') ?: '';
+$allowed = getenv('PROCODE_ALLOWED_ORIGIN') ?: '';
 $origin  = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($allowed !== '' && $origin !== '' && $origin !== $allowed) {
     http_response_code(403);
@@ -108,7 +108,7 @@ $status   = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($status !== 200) {
-    error_log('sputnik chat: telegram вернул ' . $status . ' — ' . substr((string) $response, 0, 200));
+    error_log('procode chat: telegram вернул ' . $status . ' — ' . substr((string) $response, 0, 200));
     http_response_code(502);
     exit(json_encode(['ok' => false, 'error' => 'Telegram не отвечает']));
 }

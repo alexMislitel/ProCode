@@ -1,11 +1,11 @@
 <p align="center">
-  <strong>Спутник</strong>
+  <strong>ProCode</strong>
 </p>
 <p align="center">
-  <strong>Спутник</strong> — твой проводник в мир ИИ
+  <strong>ProCode</strong> — твой проводник в мир ИИ
 </p>
 
-> **В этом репозитории — только наш слой Спутника:** сайт (`sputnik-site/`), защита обновлений (`sputnik-guard/`), установщик (`install`) и правки ядра (`patches/opencode-core.diff`). Само ядро — OpenCode, его код лежит в их репозитории github.com/anomalyco/opencode и сюда не копируется.
+> **В этом репозитории — только наш слой ProCode:** сайт (`procode-site/`), защита обновлений (`procode-guard/`), установщик (`install`) и правки ядра (`patches/opencode-core.diff`). Само ядро — OpenCode, его код лежит в их репозитории github.com/anomalyco/opencode и сюда не копируется.
 
 ---
 
@@ -41,12 +41,12 @@ ProCode — ИИ-помощник для повседневных задач. Г
 ## Установка
 
 ```bash
-curl -fsSL https://sputnik.ru/install | bash
+curl -fsSL https://raw.githubusercontent.com/alexMislitel/ProCode/main/install | bash
 ```
 
 ```bash
-git clone https://github.com/alexMislitel/sputnik
-cd sputnik
+git clone https://github.com/alexMislitel/ProCode
+cd procode
 bun install
 ```
 
@@ -94,4 +94,4 @@ bun install
 ## Контакты
 
 Автор: Alexandr
-Репозиторий: https://github.com/alexMislitel/sputnik
+Репозиторий: https://github.com/alexMislitel/ProCode

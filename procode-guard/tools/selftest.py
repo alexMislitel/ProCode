@@ -1,5 +1,5 @@
 """
-Спутник — проверка, что защита работает.
+ProCode — проверка, что защита работает.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Запуск:
@@ -30,8 +30,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sputnik_guard import manifest as M  # noqa: E402
-from sputnik_guard.guard import GuardReport, check  # noqa: E402
+from procode_guard import manifest as M  # noqa: E402
+from procode_guard.guard import GuardReport, check  # noqa: E402
 
 RESULTS: list[tuple[bool, str, str]] = []
 
@@ -50,7 +50,7 @@ def make_app(folder: Path) -> None:
     (folder / "app.exe").write_bytes(b"MZ\x90\x00" + b"\x00" * 500)
     (folder / "data").mkdir()
     (folder / "data" / "ru.editorial.json").write_text('{"слова":["ну","типа"]}', encoding="utf-8")
-    (folder / "readme.txt").write_text("Спутник, 2026", encoding="utf-8")
+    (folder / "readme.txt").write_text("ProCode, 2026", encoding="utf-8")
 
 
 def sign_into(root: Path, private) -> tuple[Path, Path]:
@@ -58,8 +58,8 @@ def sign_into(root: Path, private) -> tuple[Path, Path]:
     manifest = M.build_manifest(files, root)
     signature = M.sign_manifest(manifest, private)
 
-    manifest_path = root / "sputnik.manifest.json"
-    signature_path = root / "sputnik.manifest.sig"
+    manifest_path = root / "procode.manifest.json"
+    signature_path = root / "procode.manifest.sig"
     manifest_path.write_bytes(M.canonical(manifest))
     signature_path.write_bytes(signature)
     return manifest_path, signature_path
@@ -72,7 +72,7 @@ def main() -> int:
     public = private.public_key()
     attacker = Ed25519PrivateKey.generate()
 
-    work = Path(tempfile.mkdtemp(prefix="sputnik-selftest-"))
+    work = Path(tempfile.mkdtemp(prefix="procode-selftest-"))
     try:
         # 1. Честная сборка проходит.
         print("\n1. Честная сборка")
@@ -91,7 +91,7 @@ def main() -> int:
         tampered = work / "tampered"
         shutil.copytree(good, tampered)
         target = tampered / "readme.txt"
-        target.write_text("Спутник, 2026 — с вредоносной строкой", encoding="utf-8")
+        target.write_text("ProCode, 2026 — с вредоносной строкой", encoding="utf-8")
         report = check(tampered, public)
         record(
             not report.ok and bool(report.tampered),
@@ -119,8 +119,8 @@ def main() -> int:
         files = [p for p in forged.rglob("*") if p.is_file() and p.name not in M.__dict__.get("_skip", set()) and "manifest" not in p.name]
         manifest = M.build_manifest(files, forged)
         signature = M.sign_manifest(manifest, attacker)
-        (forged / "sputnik.manifest.json").write_bytes(M.canonical(manifest))
-        (forged / "sputnik.manifest.sig").write_bytes(signature)
+        (forged / "procode.manifest.json").write_bytes(M.canonical(manifest))
+        (forged / "procode.manifest.sig").write_bytes(signature)
         report = check(forged, public)
         record(
             not report.ok and report.stage == "подпись",
@@ -132,9 +132,9 @@ def main() -> int:
         print("\n5. Правка манифеста")
         edited = work / "edited"
         shutil.copytree(good, edited)
-        data = json.loads((edited / "sputnik.manifest.json").read_text(encoding="utf-8"))
+        data = json.loads((edited / "procode.manifest.json").read_text(encoding="utf-8"))
         data["files"]["readme.txt"] = "0" * 64  # подставили чужой хеш
-        (edited / "sputnik.manifest.json").write_bytes(M.canonical(data))
+        (edited / "procode.manifest.json").write_bytes(M.canonical(data))
         report = check(edited, public)
         record(
             not report.ok and report.stage == "подпись",

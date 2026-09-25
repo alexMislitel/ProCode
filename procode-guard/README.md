@@ -1,4 +1,4 @@
-# Спутник Guard — защита целостности сборки
+# ProCode Guard — защита целостности сборки
 
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
@@ -28,8 +28,8 @@
 ```
 СБОРКА
   собрать манифест  →  подписать приватным ключом  →  положить рядом
-                                                       sputnik.manifest.json
-                                                       sputnik.manifest.sig
+                                                       procode.manifest.json
+                                                       procode.manifest.sig
 
 ЗАПУСК
   прочитать манифест
@@ -52,7 +52,7 @@
 | | Где | Попадает в поставку |
 |---|---|---|
 | Приватный | `keys/signing_key_ed25519.bin` | **никогда** |
-| Публичный | вшит в `sputnik_guard/keys.py` | да, он и так есть в коде |
+| Публичный | вшит в `procode_guard/keys.py` | да, он и так есть в коде |
 
 Публичный ключ вшит в код, а не лежит файлом рядом. Иначе подделка
 выглядела бы так: меняем ключ, меняем манифест, подписываем своим.
@@ -97,8 +97,8 @@ python tools/selftest.py
 import sys, base64
 from pathlib import Path
 
-from sputnik_guard import enforce, public_key_from_bytes
-from sputnik_guard.keys import PUBLIC_KEY_B64
+from procode_guard import enforce, public_key_from_bytes
+from procode_guard.keys import PUBLIC_KEY_B64
 
 def main() -> int:
     root = Path(sys._MEIPASS if getattr(sys, "frozen", False) else __file__).parent
@@ -146,7 +146,7 @@ def main() -> int:
 
 ## Домен
 
-Сейчас в `sputnik_guard/guard.py`:
+Сейчас в `procode_guard/guard.py`:
 
 ```python
 INFO_URL = "info.test"

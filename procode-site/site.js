@@ -1,5 +1,5 @@
 /*
- * Спутник — общие ссылки и меню.
+ * ProCode — общие ссылки и меню.
  * © 2026 Alexandr. Основной код форка: OpenCode, MIT, (c) 2025 opencode
  *
  * ЗАЧЕМ ЭТОТ ФАЙЛ
@@ -13,11 +13,11 @@
  */
 
 const LINKS = {
-  name: 'Спутник',
+  name: 'ProCode',
   tagline: '',
 
   // --- внешнее: впиши свои, когда будет ---
-  GITHUB_REPO: 'https://github.com/alexMislitel/sputnik',
+  GITHUB_REPO: 'https://github.com/alexMislitel/ProCode',
   TELEGRAM: 'https://t.me/alex2zeus',
   EMAIL: 'alexgold917@gmail.com',
 

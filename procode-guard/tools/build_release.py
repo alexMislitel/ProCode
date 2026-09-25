@@ -1,5 +1,5 @@
 """
-Спутник — сборка релиза.
+ProCode — сборка релиза.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Запуск на машине сборки:
@@ -38,7 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sputnik_guard.manifest import (  # noqa: E402
+from procode_guard.manifest import (  # noqa: E402
     build_manifest,
     canonical,
     sign_manifest,
@@ -46,8 +46,8 @@ from sputnik_guard.manifest import (  # noqa: E402
 
 PRIVATE_PATH = ROOT / "keys" / "signing_key_ed25519.bin"
 
-MANIFEST_NAME = "sputnik.manifest.json"
-SIGNATURE_NAME = "sputnik.manifest.sig"
+MANIFEST_NAME = "procode.manifest.json"
+SIGNATURE_NAME = "procode.manifest.sig"
 
 SKIP_DIRS = {
     "__pycache__", ".git", ".venv", "venv", "node_modules",
@@ -109,7 +109,7 @@ def main(argv: list[str]) -> int:
         files,
         source,
         extra={
-            "product": "Спутник",
+            "product": "ProCode",
             "name": source.name,
             "build": version,
             "built": datetime.now(timezone.utc).isoformat(timespec="seconds"),

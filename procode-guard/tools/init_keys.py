@@ -1,5 +1,5 @@
 """
-Спутник — создание ключей подписи.
+ProCode — создание ключей подписи.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Запуск:
@@ -7,7 +7,7 @@
 
 Создаёт пару Ed25519:
     приватный ключ — сюда, в keys/ (в поставку не идёт)
-    публичный ключ  — печатает, его надо вписать в sputnik_guard/keys.py
+    публичный ключ  — печатает, его надо вписать в procode_guard/keys.py
 
 Приватный ключ — это и есть подпись сборки. Потеряем его — придётся
 выпускать новую версию с новым ключом. Утечка — значит кто угодно сможет
@@ -57,7 +57,7 @@ def show_public() -> int:
     public_bytes = PUBLIC_PATH.read_bytes()
     encoded = base64.b64encode(public_bytes).decode("ascii")
 
-    print("Публичный ключ впиши в sputnik_guard/keys.py:")
+    print("Публичный ключ впиши в procode_guard/keys.py:")
     print()
     print(f'PUBLIC_KEY_B64 = "{encoded}"')
     print()

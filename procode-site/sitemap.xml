@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Спутник © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode -->
+<!-- ProCode © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://sputnik.ru/</loc>
+    <loc>https://ВАШ-ДОМЕН/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://sputnik.ru/kak-ubrat-slova-parazity/</loc>
+    <loc>https://ВАШ-ДОМЕН/kak-ubrat-slova-parazity/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://sputnik.ru/bes-interneta/</loc>
+    <loc>https://ВАШ-ДОМЕН/bes-interneta/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sputnik.ru/ochistka-teksta/</loc>
+    <loc>https://ВАШ-ДОМЕН/ochistka-teksta/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sputnik.ru/skachat/</loc>
+    <loc>https://ВАШ-ДОМЕН/skachat/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

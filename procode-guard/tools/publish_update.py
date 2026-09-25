@@ -1,5 +1,5 @@
 """
-Спутник — публикация обновления.
+ProCode — публикация обновления.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Одна команда публикует релиз и обновляет всех клиентов сразу.
@@ -36,23 +36,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sputnik_guard.keys import PUBLIC_KEY_B64  # noqa: E402
-from sputnik_guard.guard import public_key_from_bytes  # noqa: E402
-from sputnik_guard.guard import check as verify_release  # noqa: E402
-from sputnik_guard.update import write_update_manifest  # noqa: E402
+from procode_guard.keys import PUBLIC_KEY_B64  # noqa: E402
+from procode_guard.guard import public_key_from_bytes  # noqa: E402
+from procode_guard.guard import check as verify_release  # noqa: E402
+from procode_guard.update import write_update_manifest  # noqa: E402
 
 import base64  # noqa: E402
 
 PRIVATE_PATH = ROOT / "keys" / "signing_key_ed25519.bin"
 
 # Куда складываем на сервере. Ведь /var/www/wowbot-license — это
-# корень существующих проектов; Спутник кладём рядом, своей папкой.
-REMOTE_DIR = "/var/www/wowbot-license/sputnik"
-REMOTE_UPDATE_URL = "http://185.43.4.62/updates/sputnik"
+# корень существующих проектов; ProCode кладём рядом, своей папкой.
+REMOTE_DIR = "/var/www/wowbot-license/procode"
+REMOTE_UPDATE_URL = "http://185.43.4.62/updates/procode"
 
 # Доступ к серверу берётся из переменных окружения, ключ в код не вшит.
-SSH_KEY_ENV = "SPUTNIK_SSH_KEY"
-SSH_USER_ENV = "SPUTNIK_SSH_USER"
+SSH_KEY_ENV = "PROCODE_SSH_KEY"
+SSH_USER_ENV = "PROCODE_SSH_USER"
 
 
 def ssh_command(*args: str) -> list[str]:
@@ -63,7 +63,7 @@ def ssh_command(*args: str) -> list[str]:
     if not key:
         raise SystemExit(
             f"Не задана переменная {SSH_KEY_ENV} — путь к ключу ssh.\n"
-            f"Пример: set {SSH_KEY_ENV}=C:\\Users\\alexk\\.ssh\\sputnik_deploy"
+            f"Пример: set {SSH_KEY_ENV}=C:\\Users\\alexk\\.ssh\\procode_deploy"
         )
     return ["ssh", "-i", key, "-o", "BatchMode=yes", f"{user}@185.43.4.62", *args]
 
@@ -110,7 +110,7 @@ def main(argv: list[str]) -> int:
     print(f"  релиз подписан, файлов проверено: {report.checked}")
 
     if not version:
-        meta = json.loads((release / "sputnik.manifest.json").read_text(encoding="utf-8"))
+        meta = json.loads((release / "procode.manifest.json").read_text(encoding="utf-8"))
         version = str(meta.get("build", "")) or "0.0.0"
 
     # Ищем главный файл программы: самый большой .exe.
@@ -162,7 +162,7 @@ def main(argv: list[str]) -> int:
 
         served = urlopen(f"{REMOTE_UPDATE_URL}/version.json", timeout=15).read()
         served_sig = urlopen(f"{REMOTE_UPDATE_URL}/version.json.sig", timeout=15).read()
-        from sputnik_guard.manifest import verify_manifest
+        from procode_guard.manifest import verify_manifest
 
         result = verify_manifest(json.loads(served.decode("utf-8")), served_sig, public_key)
         if not result.signature_ok:

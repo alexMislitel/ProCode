@@ -1,5 +1,5 @@
 """
-Спутник — сборка и подпись манифеста.
+ProCode — сборка и подпись манифеста.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Запуск:
@@ -11,8 +11,8 @@
     3. подписывает его приватным ключом
 
 Результат рядом с программой:
-    sputnik.manifest.json   — что внутри
-    sputnik.manifest.sig    — подпись
+    procode.manifest.json   — что внутри
+    procode.manifest.sig    — подпись
 
 Приватный ключ читается из keys/signing_key_ed25519.bin. Сам файл
 подписи и манифеста исключены из обхода, иначе они посчитали бы сами
@@ -27,7 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sputnik_guard.manifest import (  # noqa: E402
+from procode_guard.manifest import (  # noqa: E402
     MANIFEST_VERSION,
     build_manifest,
     canonical,
@@ -47,7 +47,7 @@ SKIP_DIRS = {
 SKIP_SUFFIXES = {".pyc", ".pyo", ".log", ".tmp", ".bak", ".old"}
 
 # Служебные файлы самой защиты.
-SKIP_NAMES = {"sputnik.manifest.json", "sputnik.manifest.sig"}
+SKIP_NAMES = {"procode.manifest.json", "procode.manifest.sig"}
 
 
 def collect(root: Path) -> list[Path]:
@@ -92,8 +92,8 @@ def main(argv: list[str]) -> int:
     private = Ed25519PrivateKey.from_private_bytes(PRIVATE_PATH.read_bytes())
     signature = sign_manifest(manifest, private)
 
-    manifest_path = root / "sputnik.manifest.json"
-    signature_path = root / "sputnik.manifest.sig"
+    manifest_path = root / "procode.manifest.json"
+    signature_path = root / "procode.manifest.sig"
 
     manifest_path.write_bytes(canonical(manifest))
     signature_path.write_bytes(signature)

@@ -1,5 +1,5 @@
 """
-Спутник — проверка целостности при запуске.
+ProCode — проверка целостности при запуске.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Порядок работы при старте программы:
@@ -28,8 +28,8 @@ from .manifest import (
     verify_manifest,
 )
 
-MANIFEST_NAME = "sputnik.manifest.json"
-SIGNATURE_NAME = "sputnik.manifest.sig"
+MANIFEST_NAME = "procode.manifest.json"
+SIGNATURE_NAME = "procode.manifest.sig"
 
 # Заглушка. Меняется на боевой домен одной строкой перед выпуском.
 # Домен .test не разрешается в интернете по RFC 6761 и не зарезолвится

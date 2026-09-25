@@ -1,5 +1,5 @@
 """
-Спутник — автообновление.
+ProCode — автообновление.
 © 2026 Alexandr. Основной код форка: OpenCode, MIT, © 2025 opencode.
 
 Схема та же, что проверена в Wow-Bot и VoiDxt: файла version.json,
@@ -43,7 +43,7 @@ MIN_EXE_BYTES = 1_000_000
 
 # Безопасный заголовок: по умолчанию urlopen шлёт Python/urllib,
 # и по этому заголовку в логах видно, что зашёл бот, а не программа.
-USER_AGENT = "Sputnik-Update/1.0"
+USER_AGENT = "ProCode-Update/1.0"
 
 TIMEOUT_CHECK = 10
 TIMEOUT_DOWNLOAD = 600
