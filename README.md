@@ -94,7 +94,3 @@ ollama serve
 
 Автор: Alexandr
 Репозиторий: https://github.com/alexMislitel/sputnik
-
----
-
-<sub>OpenCode — торговая марка своих владельцев, этот продукт так не называется.</sub>
