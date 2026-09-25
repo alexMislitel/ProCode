@@ -2,7 +2,7 @@
   <strong>Спутник</strong>
 </p>
 <p align="center">
-  <strong>Спутник</strong> — программа, в которой говоришь и получаешь чистый текст
+  <strong>Спутник</strong> — твой проводник в мир ИИ
 </p>
 
 > **В этом репозитории — только наш слой Спутника:** сайт (`sputnik-site/`), защита обновлений (`sputnik-guard/`), установщик (`install`) и правки ядра (`patches/opencode-core.diff`). Само ядро — OpenCode, его код лежит в их репозитории github.com/anomalyco/opencode и сюда не копируется.
